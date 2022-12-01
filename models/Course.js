@@ -8,20 +8,20 @@ const CourseSchema = new mongoose.Schema({
 	},
 	description: {
 		type: String,
-		require: [true, 'Please add a description'],
+		required: [true, 'Please add a description'],
 	},
 	weeks: {
 		type: String,
-		require: [true, 'Please add number of weeks'],
+		required: [true, 'Please add number of weeks'],
 	},
 	tuition: {
 		type: Number,
-		require: [true, 'Please add a tuition cost'],
+		required: [true, 'Please add a tuition cost'],
 	},
-	minimunSkill: {
+	minimumSkill: {
 		type: String,
-		require: [true, 'Please add a description'],
-		enum: ['beginner', 'intermediate', 'advances'],
+		required: [true, 'Please add a skills'],
+		enum: ['beginner', 'intermediate', 'advanced'],
 	},
 	scholarshipAvailable: {
 		type: Boolean,
