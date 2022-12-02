@@ -36,8 +36,17 @@ const UserSchema = new mongoose.Schema(
 	},
 	{
 		timestamps: true,
+		toJSON: { virtuals: true },
+		toObject: { virtuals: true },
 	},
 );
+
+UserSchema.virtual('bootcamps', {
+	ref: 'Bootcamp',
+	localField: '_id',
+	foreignField: 'user',
+	justOne: true,
+});
 
 UserSchema.pre('save', async function (next) {
 	if (!this.isModified('password')) {
