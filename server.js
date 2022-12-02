@@ -36,7 +36,11 @@ app.use(express.json());
 // Sanitize data
 app.use(mongoSanitize());
 // Security headers
-app.use(helmet());
+app.use(
+	helmet({
+		contentSecurityPolicy: false,
+	}),
+);
 // Prevent xss attacks
 app.use(xss());
 // Rate limiting
