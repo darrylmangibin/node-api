@@ -54,11 +54,9 @@ CourseSchema.statics.getAverageCost = async function (bootcampId) {
 	]);
 
 	try {
-		const b = await mongoose.model('Bootcamp').findByIdAndUpdate(bootcampId, {
+		await mongoose.model('Bootcamp').findByIdAndUpdate(bootcampId, {
 			averageCost: Math.ceil(obj[0].averageCost / 10) * 10,
 		});
-
-		console.log(b);
 	} catch (error) {
 		console.error(error);
 	}
